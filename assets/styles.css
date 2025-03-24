@@ -1,5 +1,3 @@
-
-
 /*
 
 Deze CSS hoef je niet aan te passen; dit zijn algemene stijlen voor elke pagina.
@@ -29,7 +27,9 @@ h1 {
 .fdnd-nav a {
 	color: var(--blue);
 }
-.fdnd-nav a:hover, .fdnd-nav a:focus-visible {
+
+.fdnd-nav a:hover,
+.fdnd-nav a:focus-visible {
 	text-decoration: none;
 }
 
@@ -55,4 +55,74 @@ video {
 :focus-visible {
 	outline: 3px solid var(--blue);
 	outline-offset: 3px;
+}
+
+
+
+/*:MARK: FAQ*/
+
+.faq {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	margin: 1em;
+}
+
+details {
+	width: fit-content;
+
+	&:nth-child(3n + 1) {
+		--bg: var(--purple);
+	}
+
+	&:nth-child(3n + 2) {
+		--bg: var(--green);
+	}
+
+	&:nth-child(3n + 3) {
+		--bg: var(--yellow);
+	}
+}
+
+details[open]{
+	border: none;
+	summary, .answer{
+	background-color: var(--bg);
+	padding: 1em;
+	}
+}
+
+summary{
+	width: fit-content;
+	border-radius: 10px 10px 0px 0px;
+}
+
+.answer{
+	border-radius: 0px 10px 10px 10px;
+}
+
+details{
+	border: 2px solid black;
+	padding: 1em;
+	border-radius: 10px;
+}
+
+p{
+	padding: 0;
+	margin: 0;
+	width: 40em;
+}
+
+details summary::before{
+	content:"+ ";
+	transition: 0.2s;
+	display: inline-block;
+}
+
+details summary::marker{
+	content: '';
+}
+
+details[open] summary::before{
+	transform: rotate(45deg);
 }
